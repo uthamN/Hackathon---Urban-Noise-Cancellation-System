@@ -56,8 +56,12 @@ class NoiseReductionSystem:
                 input_data = self.input_queue.get(timeout=0.1)
 
                 # Process each channel
+                # reference = input_data[:, 0]
+                # desired = input_data[:, 1]
+
                 reference = input_data[:, 0]
-                desired = input_data[:, 1]
+                desired = reference  
+
 
                 # Process through adaptive filter
                 output_buffer = np.zeros(len(reference))
@@ -92,7 +96,7 @@ class NoiseReductionSystem:
         try:
             self.input_stream = sd.InputStream(
                 device=self.input_device,
-                channels=2,
+                channels=1,
                 callback=self.input_callback,
                 samplerate=self.sample_rate,
                 blocksize=self.block_size
@@ -171,8 +175,8 @@ def handle_interrupt(nr_system):
 
 def main():
     # Print available audio devices
-    print("\nAvailable audio devices:")
-    print(sd.query_devices())
+    # print("\nAvailable audio devices:")
+    # print(sd.query_devices())
 
     try:
         # Create noise reduction system
