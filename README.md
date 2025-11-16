@@ -15,7 +15,7 @@ Modern urban environments are filled with unpredictable noise—traffic, constru
 
 This system is inspired by active noise cancellation (ANC) used in headphones, but extended to a spatial environment.
 
-"""
+```
  ┌───────────────────────────┐
  │   Microphone Array (xn)   │
  │  [Top-Left][Top-Right]    │
@@ -38,7 +38,7 @@ This system is inspired by active noise cancellation (ANC) used in headphones, b
  │  Emit cancellation signal │
  └───────────────────────────┘
 
-"""
+```
 
 
 ## Note
